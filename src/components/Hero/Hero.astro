@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  Client: boolean;
+  Admin: boolean;
+  job: boolean;
+}
+const { Client, Admin, job } = Astro.props;
+//img
+import HeroImg from "@assets/images/hero.jpg"
+//components 
+import TextHero from "../Hero/TextBox.astro";
+import FilterModel from './FilterModel.astro';
+---
+<section class="hero relative ">
+    {
+        Client && (
+        <div class="imgContainer">
+        <Image src={HeroImg} alt={`hero img bg`} format='webp' quality={50} class={`img-cover`} />
+    </div>
+    <div class="container">
+        <div class="row items-center">
+            <div class="col-6-lg col-6-md col-12-sm">
+                <TextHero/>
+            </div>
+            <!-- right-FilterModel -->
+            <div class="col-6-lg col-6-md col-12-sm">
+                <FilterModel isHead={false} isBook={false} />
+            </div>
+        </div>
+        <!-- left box text -->
+    </div>
+        )
+    }
+</section>

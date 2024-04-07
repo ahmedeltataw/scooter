@@ -1,0 +1,159 @@
+@use "../helpers/color" as *;
+@use "../helpers/animation" as *;
+@use "../helpers/extend" as*;
+@use "../helpers/mixin" as *;
+
+header {
+    z-index: 1024;
+    nav {
+        .logo {
+            width: 100px;
+
+        }
+
+        .link-list {
+            .navLink {
+                color: $text;
+                transition: $t-s;
+            }
+
+            &.normalMenu {
+                li {
+                    &:not(:first-child) {
+                        margin-right: 5vh;
+                    }
+
+                    .navLink {
+
+                        &::before {
+                            @extend %pseudoElX;
+
+                            @include pseudoEl(130%, 0, $hover-1, bottom, 0);
+                            left: 50%;
+                            transform: translateX(-50%);
+                            border-radius: 30px;
+                            z-index: -1;
+                            opacity: 0;
+
+                        }
+
+                        &:hover,
+                        &.active {
+                            color: $w;
+
+
+                            &::before {
+                                height: 110%;
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+
+                };
+                @media(max-width:767px){
+                    display: none;
+                }
+            }
+
+            &.Mobile {
+                z-index: 1024;
+                flex-direction: column;
+                position: absolute;
+                background-color: $BG;
+                width: 100%;
+                display: none;
+                overflow: hidden;
+                left: 0;
+                padding-right: 30px;
+                box-shadow: 0 20px 1rem rgba($color: $text, $alpha: .15);
+
+                .navItems {
+                    padding-top: 15px;
+
+                    &:last-child {
+                        padding-bottom: 15px;
+                    }
+
+                    .navLink {
+                        &::before {
+                            @extend %pseudoElX;
+                            @include pseudoEl(2.5px, 0, $hover-1, right, -10px);
+                        }
+
+
+
+
+                        &:hover {
+                            color: $hover;
+
+                            &::before {
+                                height: 100%;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            &.open {
+                &.Mobile {
+                    display: flex;
+                }
+            }
+        }
+
+
+    }
+}
+
+// .btn-certain{}
+.btn-certain {
+    background-color: transparent;
+    border: 2px solid $hover;
+    color: $hover;
+    transition: $t-s;
+    a{
+        color: $hover;
+    transition: $t-s;
+    }
+    &::before,
+    &::after {
+        @extend %pseudoElX;
+        // border-radius: 6px;
+        width: 15px;
+        aspect-ratio: 1;
+        background-color: #fff;
+        transform: rotate(45deg);
+        border: 2px solid $hover;
+    }
+
+    &::before {
+        top: -8px;
+        left: -8px;
+    }
+
+    &::after {
+        bottom: -8px;
+        right: -8px;
+    }
+
+    &:hover {
+        border-color: $hover-1;
+        box-shadow: 0 0 10px rgba($color: $hover-1, $alpha: .5);
+        color: $hover-1;
+        animation: shaking 500ms ease-in-out forwards;
+        a{
+            color: $hover-1;
+        }
+        &::before,
+        &::after {
+            border-color: $hover-1;
+            background-color: $hover-1;
+
+        }
+
+    }
+}
+
+@include shaking(shaking);

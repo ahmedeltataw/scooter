@@ -1,0 +1,97 @@
+---
+import Button from "@components/ui/Button.astro";
+import MainHeadingDes from "@components/ui/MainHeading_des.astro";
+
+interface Props {
+  isBook: boolean;
+}
+const { isBook } = Astro.props;
+---
+
+<section class="book">
+  <div class="container">
+    <div class="btnFilters d-flex items-center justify-center pb-14">
+      <Button
+        type="button"
+        aria="now"
+        ClassName="btn-filter fw-700 round-4 px-8 py-3 active"
+        id="Now"
+      >
+        حجوزاتي الحالية
+      </Button>
+      <Button
+        type="button"
+        aria="now"
+        ClassName="btn-filter mr-5 fw-700 round-4 px-8 py-3"
+        id="prev"
+      >
+        حجوزاتي السابقة
+      </Button>
+    </div>
+    <MainHeadingDes
+      title={`${isBook ? "حجوزاتي الحالية" : "حجوزاتي السابقة"}`}
+      sub=""
+      isSub={false}
+      position="items-center"
+    />
+
+    {
+      (
+        <table>
+          <thead>
+            <tr>
+              <td>الاسم</td>
+              <td>الموديل</td>
+              <td>السعر</td>
+              <td>اللون</td>
+              <td>الحالة</td>
+              <td>العمليات</td>
+            </tr>
+          </thead>
+          {isBook && (
+            <tbody class={`${isBook ? "now  active" : 'prev'}`}>
+              <tr>
+                <td>Minar Maxi </td>
+                <td>2023</td>
+                <td>50ر.س</td>
+                <td>اخضر</td>
+                <td>متاح</td>
+                <td>
+                  <Button
+                    type="button"
+                    aria="sure btn"
+                    ClassName="btn-base px-8 py-3 round-4">
+                    تاكيد
+                  </Button>
+                </td>
+              </tr>
+            </tbody>
+          )}
+          <tbody class={`prev`}>
+              <tr>
+                <td>Minar Maxi </td>
+                <td>2023</td>
+                <td>50ر.س</td>
+                <td>اخضر</td>
+                <td>متاح</td>
+                <td>
+                  <Button
+                    type="button"
+                    aria="sure btn"
+                    ClassName="btn-base px-8 py-3 round-4">
+                    تم القبول
+                  </Button>
+                  <Button
+                    type="button"
+                    aria="sure btn"
+                    ClassName="btn-base px-8 py-3 round-4">
+                        قيمنا
+                  </Button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      )
+    }
+  </div>
+</section>

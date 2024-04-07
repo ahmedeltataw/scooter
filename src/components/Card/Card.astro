@@ -1,0 +1,72 @@
+---
+import Button from "@components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface Props {
+  title: string;
+  des: string;
+  price: string;
+  color: string;
+  src: any | string;
+  model: string;
+
+  isStatus: boolean;
+}
+const { title, des, price, color, src, model, isStatus } = Astro.props;
+---
+
+<div class="card round-6 mb-10">
+  <div class="imgContainer relative">
+    <Image
+      src={src}
+      alt={`card image scooter `}
+      quality={70}
+      format="webp"
+      class:list={`img-cover`}
+    />
+    <p class="model fs-14 px-5 py-3 round-4">{model}</p>
+    <p
+      class={`status fs-14 px-5 py-3 round-4 ${isStatus ? "available" : "notAvailable"} `}
+    >
+      {isStatus ? "متاح" : "غير متاح"}
+    </p>
+  </div>
+  <!-- card body -->
+  <div class="cardBody round-6">
+    <!-- rate -->
+    <div class="rate d-flex items-center py-5">
+      <Icon name={`rate`} />
+      <Icon name={`rate`} />
+      <Icon name={`rate`} />
+      <Icon name={`rate`} />
+      <Icon name={`rate`} />
+    </div>
+    <!-- title -->
+    <h3 class="fs-24 fw-700">{title}</h3>
+    <!-- price -->
+    <p class="fs-28 fw-900 price">
+      {price}<span class="fs-16 fw-700">ر.س</span><span class="fs-16 fw-700"
+        >/ساعة</span>
+    </p>
+    <!-- line -->
+    <hr class="my-6" />
+    <!-- des -->
+    <p class="des fw-700 line-norma">{des}</p>
+    <!-- color -->
+    <ul class="d-flex items-center my-6">
+      <li class="color fw-700 fs-18">اللون:</li>
+      <li class="isColor fw-700">{color}</li>
+    </ul>
+    <!-- buttons -->
+    <div class="card-btn py-5 d-flex items-center justify-center">
+      <Button type="button" aria="احجز الان" ClassName="btn-base round-4">
+        <a href="Book.html" class="fs-16 fw-700 px-14 py-4">احجز الان</a>
+      </Button>
+      <Button type="button" aria="احجز الان" ClassName="btn-base round-4">
+        <a href="productDetails.html" class="fs-16 fw-700 px-14 py-4">
+          التفاصيل
+        </a>
+      </Button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+---
+import img from "@assets/images/scooter-3.jpg";
+import img2 from "@assets/images/scooter-4.jpg";
+import { Image } from "astro:assets";
+---
+<div class="gallery">
+    <div class="main-img mb-6">
+      <Image
+        src={img}
+        alt={`pro main image`}
+        format="webp"
+        quality={50}
+        class={`round-6`}
+      />
+    </div>
+    <div class="sub-img d-flex items-center gap-5">
+      <div class="imgContainer">
+        <Image
+          src={img}
+          alt={`pro main image`}
+          format="webp"
+          quality={50}
+          class={`round-4 active`}
+        />
+      </div>
+      <div class="imgContainer">
+        <Image
+          src={img2}
+          alt={`pro main image`}
+          format="webp"
+          quality={50}
+          class={`round-4`}
+        />
+      </div>
+      <div class="imgContainer">
+        <Image
+          src={img}
+          alt={`pro main image`}
+          format="webp"
+          quality={50}
+          class={`round-4`}
+        />
+      </div>
+      <div class="imgContainer">
+        <Image
+          src={img2}
+          alt={`pro main image`}
+          format="webp"
+          quality={50}
+          class={`round-4`}
+        />
+      </div>
+    </div>
+  </div>

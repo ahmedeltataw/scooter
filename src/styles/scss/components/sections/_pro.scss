@@ -1,0 +1,11 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.products{
+    @extend %section;
+    background-color: $BG;
+    .mainHeading{
+        padding: 5vh 0;
+    }
+}

@@ -1,0 +1,96 @@
+---
+import Gallery from "@components/products/Gallery.astro";
+import { Icon } from "astro-icon/components";
+import Button from "@components/ui/Button.astro";
+import Review from "./Review.astro";
+import FilterModel from "@components/Hero/FilterModel.astro";
+---
+
+<section class="ProDetails">
+  <div class="container">
+    <div class="row gap-row-1 items-start">
+      <!-- left side gallery -->
+      <div class="col-5-lg col-6-md col-12-sm">
+        <Gallery />
+        <Review/>
+      </div>
+      <!-- right side -->
+      <div class="col-7-lg col-6-md col-12-sm">
+        <div class="details">
+          <!-- rate -->
+          <div class="rate d-flex item-center mb-6">
+            <div class="star d-flex">
+              <Icon name={`rate`} />
+              <Icon name={`rate`} />
+              <Icon name={`rate`} />
+              <Icon name={`rate`} />
+              <Icon name={`rate`} />
+            </div>
+            <div class="numReview items-center pr-5 fs-18 fw-700">1 مراجعة</div>
+          </div>
+          <!-- title -->
+          <h2 class="fw-900 fs-30">Metric ES150 سكوتر</h2>
+          <!-- price -->
+          <p class="fs-28 fw-900 price mb-6">
+            50<span class="fs-16 fw-700">ر.س</span><span class="fs-16 fw-700"
+              >/ساعة</span
+            >
+          </p>
+          <hr class="mb-6" />
+          <!-- full des -->
+          <p class="des py-6 fs-18 fw-700 line-big">
+            يتميز سكوتر Minar Maxi بتصميم أنيق وعصري، يهدف إلى توفير الجمال
+            والأداء الوظيفي. يشتمل تركيبها على مواد خفيفة الوزن من أجل خفة
+            الحركة والقدرة على المناورة مع الحفاظ على المتانة والاستقرار
+          </p>
+          <hr class="my-6" />
+          <!-- color -->
+          <ul class="d-flex items-center py-6">
+            <li class="color fw-700 fs-18">اللون:</li>
+            <li class="isColor fw-700 ml-14">اسود</li>
+            <li class="color fw-700 fs-18">الحالة:</li>
+            <li class="isColor fw-700 ml-14">متاح</li>
+            <li class="color fw-700 fs-18">موديل:</li>
+            <li class="isColor fw-700">2023</li>
+          </ul>
+          <hr class="my-6" />
+          <!-- Rental Policy -->
+          <ul class="RentalPolicy py-6">
+            <p class="fs-24 fw-700 pb-6">سياسة الإيجار</p>
+            <li class="fw-700 pb-6">ادفع 15% فقط الآن والباقي في الوجهة.</li>
+            <li class="fw-700 pb-6">
+              قم بالإلغاء حتى 48 ساعة قبل الاستلام واسترد أموالك بالكامل
+            </li>
+            <li class="fw-700 pb-6">
+              هذه السيارة تتطلب رخصة فئة A1 أو ما يعادلها.
+            </li>
+            <li class="fw-700 pb-6">
+              يجب أن يكون عمرك 18 عامًا على الأقل لتتمكن من استئجارها مع خبرة
+              قيادة مدتها 12 شهرًا
+            </li>
+            <li class="fw-700 pb-6">
+              يلزم تقديم وديعة تأمين قابلة للاسترداد (بطاقة خصم بقيمة 24 ر.س)
+              عند الاستلام.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex items-center justify-center mx-auto pt-14">
+        <Button
+          type="button"
+          aria="BookNow"
+          ClassName="btn-base px-12 py-5 round-6 fw-700" id="BookNow"> احجز الان </Button
+        >
+          <div class="BookNowModel">
+            <FilterModel isBook={true} isHead={false}  >
+                <Button type="button" aria="close model" ClassName="btn-close px-5 py-4 round-6" id="closeBookModel">
+                    <Icon name="close"/>
+                </Button>
+            </FilterModel>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</section>

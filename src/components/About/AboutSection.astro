@@ -1,0 +1,49 @@
+---
+import MainHeadingDes from "@components/ui/MainHeading_des.astro";
+import AboutUl from "@components/About/AboutUl.astro"
+import { Image } from "astro:assets";
+import AboutImg from "@assets/images/About.jpg"
+import Button from "@components/ui/Button.astro";
+interface Props {
+  isAboutPage:boolean,
+}
+const {isAboutPage}=Astro.props
+---
+
+<section class="about">
+  <div class="container">
+    <div class="row ">
+      <!-- right-text -->
+      <div class="col-7-lg co-6-md col-12-sm">
+        <div class="aboutDetails">
+          <MainHeadingDes
+            title="خدمة تأجير الدراجات سهلة"
+            sub="اعرف عنا"
+            isSub={true}
+            position="items-start"
+          />
+          <!-- des -->
+          <p class="py-10 fs-16 fw-700 line-big">
+            استكشف المدينة دون عناء مع خدمة تأجير السكوتر لدينا. بأسعار معقولة
+            وموثوقة ومريحة، نحن نقدم أسطولًا من الدراجات البخارية التي يتم
+            صيانتها جيدًا لمغامرة حضرية لا تُنسى.
+          </p>
+          <!-- ul -->
+          <AboutUl/>
+          <!-- btn -->
+          <Button type="button" aria="on read" ClassName="btn-base round-6 mt-14 max-mb-10">
+            <a href={isAboutPage ? `AboutUs.html` : "signUp.html"} class="px-14 py-5 fs-18 fw-700 ">
+              {isAboutPage ? '  واصل القراءة' : 'انضم الينا'}
+            </a>
+          </Button>
+        </div>
+      </div>
+      <!-- left-img -->
+      <div class="col-5-lg co-6-md col-12-sm">
+        <div class="imgContainer">
+            <Image src={AboutImg} alt={`about img `} format="webp" quality={100} class={`round-6`} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

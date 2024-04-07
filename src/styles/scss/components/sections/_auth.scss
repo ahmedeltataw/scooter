@@ -1,0 +1,53 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.breadcrumb{
+    margin-bottom: 0
+
+}
+footer{
+    margin-top: 0
+}
+.Auth{
+    @extend %section;
+    background-color: $BG;
+    .mainHead{
+        padding-bottom: 5vh;
+        padding-top: 8vh;
+    }
+    form{
+        width: 700px;
+        background-color: $w;
+        padding: 25px 30px 10px;
+        
+        box-shadow: 0 0 1.25rem rgba($color: $text, $alpha: .2);
+        .formGroup{
+            margin-bottom: 20px;
+            flex-direction: column;
+            
+        }
+        label{
+            font-weight: 700;
+            padding-bottom: 8px;
+            padding-right: 5px;
+        }
+        input ,textarea{
+            @include input(48px,100%,transparent);
+            
+            background-color: $BG;
+            
+            
+        }
+        input{
+            padding: 30px 20px;
+        }
+        p{
+            opacity: .7;
+            a{
+                opacity: 1;
+                color: $text;
+            }
+        }
+    }
+}

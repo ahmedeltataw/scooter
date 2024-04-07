@@ -1,0 +1,72 @@
+---
+interface Props {
+  isLogin: boolean;
+}
+const { isLogin } = Astro.props;
+import MainHeadingDes from "@components/ui/MainHeading_des.astro";
+import FormGroup from "@components/ui/FormGroup.astro";
+import Button from "@components/ui/Button.astro";
+---
+
+<section class={`Auth ${isLogin ? "login" : "signIn"}`}>
+  <div class="container">
+    <MainHeadingDes
+      title={`${isLogin ? "تسجيل الدخول" : "انشاء حساب"}`}
+      isSub={false}
+      position="items-center"
+      sub=""
+    />
+    <form action="" class="mx-auto round-6">
+      {
+        !isLogin && (
+          <FormGroup
+            type="file"
+            place=""
+            title=""
+            name="userName"
+            isLabel={false}
+          />
+          <FormGroup
+            type="text"
+            place="ادخل  الاسم بالكامل"
+            title=" الاسم بالكامل "
+            name="userName"
+            isLabel={true}
+          />
+        )
+      }
+      <FormGroup
+        type="email"
+        place="ادخل  البريد الالكتروني"
+        title=" البريد الالكتروني "
+        name="userEmail"
+        isLabel={true}
+      />
+      <FormGroup
+        type="password"
+        place="ادخل   كلمة المرور"
+        title=" كلمة المرور "
+        name="userPassword"
+        isLabel={true}
+      />
+      {
+        isLogin && (
+            // <p>اذا كان لديك حساب بالفعل؟ </p>
+            <p class="py-6">ليس لدي حساب ؟ <a href="signIn.html" class="fw-700">انشاء حساب</a></p>
+            <div class="mx-auto d-flex items-center justify-center">
+                <Button type="submit" aria="login in" ClassName="btn-base round-4 px-12 py-5 mt-10 mb-6">تسجيل</Button>
+            </div>
+        )
+      }
+      {
+        !isLogin && (
+            // 
+            <p class="py-6"> اذا كان لديك حساب بالفعل؟   <a href="LoginIn.html" class="fw-700"> تسجيل </a></p>
+            <div class="mx-auto d-flex items-center justify-center">
+                <Button type="submit" aria="login in" ClassName="btn-base round-4 px-12 py-5 mt-10 mb-6">انشاء حساب</Button>
+            </div>
+        )
+      }
+    </form>
+  </div>
+</section>

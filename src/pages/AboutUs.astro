@@ -1,0 +1,13 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import Breadcrumb from "@components/ui/breadcrumb.astro";
+import AboutSection from "@components/About/AboutSection.astro";
+---
+
+<Layout
+  title="Scooter | من نحن"
+  des="توفر خدمات تأجير السكوتر في العالم العربي خيارات نقل مريحة وصديقة للبيئة للتنقل في المناطق الحضرية. ويمكن للمستخدمين بسهولة تحديد موقع السكوتر الكهربائي وفتحه باستخدام تطبيقات الهواتف الذكية، مما يعزز التنقل المستدام ويقلل الازدحام المروري. استكشف الاستكشاف الحضري الخالي من المتاعب مع تأجير السكوتر في مدن العالم العربي."
+>
+  <Breadcrumb linkPage="من نحن" defPage="الرئيسية" path="/" />
+  <AboutSection isAboutPage={false}/>
+</Layout>

@@ -1,0 +1,13 @@
+---
+import {AboutListData} from "@data/data";
+import type {AboutList} from "../../types/types"
+---
+
+<ul>
+  {
+    AboutListData.map((li:AboutList)=>(
+        <li class="fw-900 fs-18 pb-8 pr-11"> {li.title} </li>
+
+    ))
+  }
+</ul>

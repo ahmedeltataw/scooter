@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  isSub: boolean;
+  title: string;
+  sub: string;
+  position: "items-center" | "items-start"
+}
+const { isSub, title, sub , position } = Astro.props;
+---
+
+<div class={`mainHeading d-flex  justify-center ${position} `}>
+  {
+    isSub && (
+    <p class="subHead d-flex items-center fs-20">
+        {sub}
+    <Icon name={`scooter`} class={`mr-4`} />
+  </p>
+    )
+  }
+  <h2 class="mainHead fs-r-36">
+    {title}
+  </h2>
+</div>

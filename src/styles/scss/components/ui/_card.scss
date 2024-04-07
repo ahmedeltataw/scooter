@@ -1,0 +1,67 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.card{
+    .imgContainer{
+        height: 250px;
+        .model , .status{
+            background-color: $hover;
+            width: fit-content;
+            color: $w;
+            position: absolute;
+            transform: scale(.8);
+        }
+        .model{
+            bottom:-18px ;
+            left: 10px;
+            
+        }
+        .status{
+            top: 0;
+            right: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .notAvailable{
+            background-color: #da3939;
+        }
+        // 
+    }
+    .cardBody{
+        border: 1px solid rgba($color: $text, $alpha: .2);
+        border-top: 0;
+        padding: 15px 30px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        .rate{
+            svg{
+                width: 18px;
+                color: #e6b515;
+            }
+        }
+        .des{
+            @extend %responsive-text ;
+        }
+        .price{
+            color: $hover;
+        }
+        .des, span{
+            opacity: .7;
+            color: $text;
+        }
+        ul{
+            .color{
+                min-width: 50px;
+            }
+            .isColor{
+                opacity: .9;
+                color: $hover;
+            }
+        }
+        .card-btn{
+            gap:10px
+        }
+        // 
+    }
+}

@@ -1,0 +1,70 @@
+---
+import FormGroup from "@components/ui/FormGroup.astro";
+import Button from "@components/ui/Button.astro";
+interface Props {
+  isHead: boolean;
+  isBook: boolean;
+}
+const { isHead, isBook } = Astro.props;
+---
+
+<div class="modelForm mx-auto round-6 relative">
+  {
+    isHead && (
+      <div class="headModel ">
+        <p class="title fw-700 fs-18">ابحث عن الاسكوتر</p>
+      </div>
+    )
+  }
+  <form action="/" class="">
+    <FormGroup
+      type="date"
+      title="تاريخ الحجز"
+      name="dateOFDay"
+      place="d-m-y"
+      value="2024-04-15"
+    />
+    <FormGroup
+      type="time"
+      title=" وقت بداية الحجز"
+      name="startHouer"
+      place="d-m-y"
+    />
+    <FormGroup
+      type="time"
+      title=" وقت نهاية الحجز"
+      name="endHouer"
+      place="d-m-y"
+    />
+    {
+      isBook && (
+        <FormGroup
+          type="text"
+          title="عدد الساعات"
+          name="Houer"
+          place="ادخل عدد ساعات الحجز"
+          value="1"
+        />
+        <FormGroup
+          type="text"
+          title="التكلفة في الساعة"
+          name="cost"
+          place="تكلفة الحجز في الساعة"
+          value="50"
+          // isDisabled={true}
+        />
+      )
+    }
+    <div class="relative d-flex items-center justify-center">
+      <Button
+        type="button"
+        aria="احجز الان"
+        ClassName="btn-base px-14 py-5 mt-8 fw-700 round-4"
+      >
+        {isHead ? "بحث" : isBook ? 'حجز' : " احجز الاسكوتر الان"}
+        <!-- {isBook && "حجز"} -->
+      </Button>
+    </div>
+    {isBook && <slot/>}
+  </form>
+</div>

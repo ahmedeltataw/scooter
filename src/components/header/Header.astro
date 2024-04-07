@@ -1,0 +1,41 @@
+---
+interface Props {
+  Client: boolean;
+  Admin: boolean;
+  job: boolean;
+}
+const { Client, Admin, job } = Astro.props;
+import { Image } from "astro:assets";
+
+import Logo from "@assets/images/Logo.png";
+import NavList from "./NavList.astro";
+import Button from "@components/ui/Button.astro";
+---
+
+<header>
+  <div class="container">
+    <nav class="d-flex items-center py-4 justify-between">
+      <Button type="button" aria="open menu" ClassName="icon-nav-base" ariaEx='false'>
+        <span></span><span></span><span></span>
+      </Button>
+      <a href="/" class="logo">
+        <Image src={Logo} alt={"scooter logo"} quality={50} format="webp" />
+      </a>
+
+      <NavList Client={Client} Admin={Admin} job={job} />
+      {
+        Client && (
+          <Button
+            type="button"
+            aria="احجز الان"
+            
+            ClassName="btn-certain  relative round-6 ">
+            
+            {" "}
+            <a href="product.html" class="fs-18 fw-700 px-10 py-4">احجز الان</a>
+          </Button>
+        )
+      }
+    </nav>
+  </div>
+</header>

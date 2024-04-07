@@ -1,0 +1,88 @@
+---
+interface Props {
+  Client: boolean;
+  Admin: boolean;
+  job: boolean;
+}
+const { Client, Admin, job } = Astro.props;
+import { Image } from "astro:assets";
+import logoFooter from "@assets/images/LogoFooter.png";
+//data
+import {
+  HeaderDataClient,
+  HeaderDataAdmin,
+  footerFollow,
+  footerContact,
+} from "@data/data";
+import type { LinkType } from "../../types/types";
+//#0d1721
+---
+
+<footer>
+  <div class="container">
+    <div class="row gap-row-1 items-start">
+      <div class="col-3-lg col-6-md col-12-sm">
+        <ul class="footerLinks">
+          <!-- img -->
+          <li class="imgContainer mb-8">
+            <Image
+              src={logoFooter}
+              alt={`scooter logo`}
+              format="webp"
+              quality={70}
+            />
+          </li>
+          <li class="des line-big">
+            اول موقع في الوطن العربي يتح لك تاجير كافة انواع الاسكوتر بارخص
+            الاسعار
+          </li>
+        </ul>
+      </div>
+      <div class="col-3-lg col-6-md col-12-sm">
+        <ul class="footerLinks text-center">
+            <p class="title fs-24 fw-900 mb-8">روابط سريعة</p>
+          {
+            Client &&
+              HeaderDataClient.map((li: LinkType) => (
+                <li class="pb-5">
+                  <a  href={li.path}>{li.title}</a>
+                </li>
+              ))
+          }
+          {
+            Admin &&
+              HeaderDataAdmin.map((li: LinkType) => (
+                <li>
+                  <a class="pb-5" href={li.path}>{li.title}</a>
+                </li>
+              ))
+          }
+        </ul>
+      </div>
+      <div class="col-3-lg col-6-md col-12-sm">
+        <ul class="footerLinks text-center">
+            <p class="title fs-24 fw-900 mb-8"> تابعنا </p>
+          {
+            footerFollow.map((li: LinkType) => (
+              <li class="pb-5">
+                <a  href={li.path}>{li.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="col-3-lg col-6-md col-12-sm">
+        <ul class="footerLinks text-center">
+            <p class="title fs-24 fw-900 mb-8"> تواصل معنا </p>
+          {
+            footerContact.map((li: LinkType) => (
+              <li class="pb-5">
+                <a  href={li.path}>{li.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

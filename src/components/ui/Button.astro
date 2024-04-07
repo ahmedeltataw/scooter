@@ -1,0 +1,13 @@
+---
+interface Props{
+    ClassName:string ,
+    type:"submit" | 'reset' | 'button' ,
+    aria:string,
+    id?:string
+    ariaEx?:string | any,
+}
+const {ClassName , type,aria,id,ariaEx} = Astro.props
+---
+<button class:list={`btn ${ClassName}`} type={type} aria-label={aria} id={id} aria-expanded={ariaEx}>
+    <slot/>
+</button>

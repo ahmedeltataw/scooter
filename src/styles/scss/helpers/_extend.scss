@@ -1,0 +1,161 @@
+@use './color' as*;
+@use './mixin' as *;
+
+%responsive-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+@mixin textMedia($w, $line) {
+    @media(max-width:$w) {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+        overflow: hidden;
+    }
+}
+
+%grid-center {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+%centerPosition {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%grid-system {
+    grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+    justify-content: center;
+    gap: 20px 10px;
+}
+
+%visible {
+    opacity: 1;
+    transform: translateY(0);
+    transform: translateX(0);
+}
+
+%AE_Scrolling {
+    opacity: 0;
+}
+
+%label-focus {
+    top: -10px;
+    background-color: #fff;
+    transform: scale(.9);
+    color: $hover-1;
+}
+
+%btn-skew-border {
+    &.btn-skew {
+        background-color: transparent;
+        border: 1px solid $hover-1;
+        color: $hover-1;
+
+        a {
+            color: $hover-1;
+            transition: $t-s;
+        }
+
+        &:hover {
+            a {
+                color: #ffffff;
+            }
+
+            color: #ffffff;
+        }
+
+
+    }
+}
+
+// 
+%inputAuth {
+    @include input(40px, 100%, #9f9f9f61);
+
+}
+
+%Hide {
+    opacity: 0;
+    transform: translateY(-100%);
+    filter: blur(2px);
+}
+
+%Show {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+}
+
+%section {
+    min-height: 100dvh;
+    padding-bottom: 5vh;
+}
+
+// scooter
+%pseudoElX {
+    content: '';
+    position: absolute;
+    transition: $t-s;
+}
+
+%headModel {
+    background-color: $hover;
+    padding: 25px 30px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: $w;
+    
+}
+
+// 
+%form {
+    padding: 25px 30px 15px;
+    height: 100%;
+
+
+    .formGroup {
+        flex-direction: column;
+
+        input {
+            @include input (48px, 100%, rgba($color: $text, $alpha: .7))
+        }
+
+        label {
+            padding-bottom: 5px;
+            font-weight: 700;
+            color: $w;
+            font-size: 18px;
+
+        }
+    }
+
+}
+%modelForm {
+    width: 60%;
+        max-width: 100%;
+        height: 100%;
+        margin-top: 120px;
+        background-color: $hover;
+        box-shadow: 0 0 1.25rem rgba($color: $light-shadow, $alpha: 1);
+}
+%modelBG{
+    position: fixed;
+    inset: 0;
+    background-color: rgba($color: $text, $alpha: .5);
+    backdrop-filter: blur(2px);
+    z-index: 1025;
+    display: none;
+    transform: scale(0);
+    transition: $t-l;
+    &.open{
+        transform: scale(1);
+    }
+}

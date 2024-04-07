@@ -1,0 +1,14 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import Breadcrumb from "@components/ui/breadcrumb.astro";
+import "@styles/scss/pages/MyBook.scss";
+import Book from "@components/book/Book.astro";
+---
+
+<Layout
+  title="Scooter | حجوزاتي "
+  des="توفر خدمات تأجير السكوتر في العالم العربي خيارات نقل مريحة وصديقة للبيئة للتنقل في المناطق الحضرية. ويمكن للمستخدمين بسهولة تحديد موقع السكوتر الكهربائي وفتحه باستخدام تطبيقات الهواتف الذكية، مما يعزز التنقل المستدام ويقلل الازدحام المروري. استكشف الاستكشاف الحضري الخالي من المتاعب مع تأجير السكوتر في مدن العالم العربي."
+>
+  <Breadcrumb linkPage=" حجوزاتي " defPage="الرئيسية" path="/" />
+  <Book isBook={true} />
+</Layout>

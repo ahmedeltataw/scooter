@@ -1,0 +1,35 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+
+.about {
+    @extend %section;
+    padding-top: 5vh;
+    .aboutDetails {
+        p {
+            width: 650px;
+            max-width: 100%;
+            opacity: .7;
+        }
+
+        ul {
+            li {
+                position: relative;
+                
+                &::before {
+                    @extend %pseudoElX;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%235fa3d9' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+                   
+                    right: -5px;
+                    top: 30%;
+                    transform: translateY(-50%);
+                    width: 24px;
+                    /* Set the width and height of the marker */
+                    height: 24px;
+
+                }
+            }
+        }
+    }
+}

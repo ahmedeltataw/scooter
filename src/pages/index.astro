@@ -1,0 +1,19 @@
+---
+//layout
+import Layout from "src/layouts/Layout.astro";
+//style
+import "@styles/scss/pages/Home.scss"
+//compontents
+import Hero from "@components/Hero/Hero.astro";
+import AboutSection from "@components/About/AboutSection.astro";
+import ProSection from "@components/products/ProSection.astro";
+---
+
+<Layout
+  title="Scooter | الصفحة الرئيسية"
+  des="توفر خدمات تأجير السكوتر في العالم العربي خيارات نقل مريحة وصديقة للبيئة للتنقل في المناطق الحضرية. ويمكن للمستخدمين بسهولة تحديد موقع السكوتر الكهربائي وفتحه باستخدام تطبيقات الهواتف الذكية، مما يعزز التنقل المستدام ويقلل الازدحام المروري. استكشف الاستكشاف الحضري الخالي من المتاعب مع تأجير السكوتر في مدن العالم العربي."
+>
+  <Hero Client={true} Admin={false} job={false}  />
+  <AboutSection isAboutPage={true}/>
+  <ProSection/>
+</Layout>

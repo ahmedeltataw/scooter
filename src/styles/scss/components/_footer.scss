@@ -1,0 +1,38 @@
+@use "../helpers/color" as *;
+@use "../helpers/animation" as *;
+@use "../helpers/extend" as*;
+@use "../helpers/mixin" as *;
+footer{
+    min-height: 50dvh;
+    padding-top: 8vh;
+    margin-top: 5vh;
+    background-color: #0d1721;
+
+    .footerLinks{
+        .imgContainer{
+            width: 120px;
+            
+        }
+        .des{
+            width: 250px;
+            max-width: 100%;
+        }
+        .title{
+            color: $hover-1;
+        }
+        li a , .des{
+            color: $w;
+            opacity: .7;
+        }
+        li {
+            a{
+                transition: $t-s;
+                &:hover{
+                    color: $hover-1;
+                    letter-spacing: 1;
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}

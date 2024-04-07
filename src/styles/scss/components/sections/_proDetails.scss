@@ -1,0 +1,138 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.ProDetails{
+    @extend %section ;
+    .gallery{
+        img{
+            transition: $t-s;
+        }
+        .sub-img{
+            img{
+                cursor: pointer;
+                
+                &:not(.active){
+                    opacity: .7;
+                }
+            }
+        }
+    }
+    .details{
+        // border: 1px solid rgba($color: #000000, $alpha: 1.0);
+        padding: 0px 15px;
+        .rate{
+            
+            .numReview{
+                opacity: .7;
+            }
+        }
+        .price{
+            span{
+                opacity: .7;
+            }
+        }
+        hr{
+            opacity: .4;
+        }
+        .des{
+            opacity: .7;
+        }
+        .color{
+            min-width: 50px;
+        }
+        .isColor{
+            opacity: .7;
+        }
+        .RentalPolicy{
+            
+            p{
+                color: $hover;
+            }
+            li{
+                list-style-type: decimal;
+                
+            }
+            li::marker{
+                color: $hover;
+                
+            } 
+        }
+    }
+    .star{
+        svg ,span{
+            width: 24px;
+            color: #e6b515;
+        }
+    }
+    .review{
+        border: 1px solid rgba($color: #000000, $alpha: .2);
+        padding: 10px 15px;
+        border-radius: 6px;
+        .userReview{
+            background-color: $BG;
+            p{
+                opacity: .7;
+            }
+        }
+    }
+    .addRateModel{
+        @extend %modelBG;
+        form{
+            background-color: $w;
+            width: 500px;
+            padding: 20px 30px 10px;
+            .star{
+                svg{
+                    cursor: pointer;
+                    &:nth-child(5){
+                        color: #797979;
+                    }
+                    &:nth-child(4){
+                        color: #797979;
+                    }
+                }
+            }
+            textarea{
+                @include input(120px,100%,rgba($color: #000000, $alpha: .2));
+            }
+            
+        }
+    }
+    .BookNowModel{
+        @extend %modelBG;
+        .modelForm{
+            @extend %modelForm ;
+            width: 700px;
+            background-color: transparent;
+            margin-top: 20px;
+            box-shadow: none
+        }
+        form{
+            @extend %form;
+            padding: 40px 30px 15px;
+            height: fit-content;
+            background-color: $hover;
+            box-shadow: 0 0 1.25rem rgba($color: $light-shadow, $alpha: 1);
+            border-radius: 6px;
+            input:disabled{
+                background-color: #c9d3d5;
+                
+            }
+        }
+    }
+    .btn-close{
+        background-color: $text;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        svg{
+            color: $w;
+            width: 24px;
+        }
+    }
+}

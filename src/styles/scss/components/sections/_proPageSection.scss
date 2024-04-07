@@ -1,0 +1,44 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.proPageSection{
+    @extend %section;
+    aside{
+        
+        // height: 100vh;
+        .modelForm{
+            height: 100%;
+            width: 100%;
+            background-color: $BG;
+     
+            box-shadow: 0 0 1.25rem rgba($color: #1e1e1e, $alpha: .2);
+            .headModel{
+                @extend %headModel;
+            }
+            form{
+                @extend %form;
+                .formGroup{
+                    label{
+                        color: $text;
+                    }
+                }   
+                
+            }
+        }
+
+    }
+    .rightTop{
+        select{
+            @include input(48px,300px,rgba($color: #1e1e1e, $alpha: .2));
+            
+            background-color: $BG;
+
+            
+        }
+        .searchResult{
+            opacity: .7;
+        }
+    }
+    // /
+}

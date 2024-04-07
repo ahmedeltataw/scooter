@@ -1,0 +1,35 @@
+---
+import Button from "@components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+<div class="addRateModel d-flex items-center justify-center">
+    <form action="" class="round-6 relative">
+      <p class="text-center fs-24 fw-900 pb-8">اعطنا تقيمك</p>
+      <div class="rate d-flex items-center justify-around mb-8">
+        <p class="pl-8 fw-700 fs-18">تقيمك</p>
+        <div class="star d-flex">
+          <Icon name={`rate`} class="starRating" data-value="1"/>
+          <Icon name={`rate`} class="starRating" data-value="2" />
+          <Icon name={`rate`} class="starRating" data-value="3" />
+          <Icon name={`rate`} class="starRating" data-value="4" />
+          <Icon name={`rate`} class="starRating" data-value="5" />
+        </div>
+      </div>
+      <textarea
+        name="addComment"
+        id="addComment"
+        class="pr-5 pt-5 round-4"
+        placeholder="اضف تعليقك"></textarea>
+      <div class="d-flex items-center justify-center my-8">
+        <Button
+          type="button"
+          aria="addComment"
+          ClassName="btn-base px-12 py-5 round-6 fw-700"
+          >حفظ
+        </Button>
+      </div>
+      <Button type="button" aria="close model" ClassName="btn-close px-5 py-4 round-6" id="closeRateModel">
+          <Icon name="close"/>
+      </Button>
+    </form>
+  </div>

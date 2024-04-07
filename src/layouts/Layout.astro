@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  des: string;
+}
+const {title , des} = Astro.props
+// base head meat
+import BaseHead from "@components/BaseHead.astro"
+
+// components
+import Header from "@components/header/Header.astro";
+import Footer from "@components/footer/footer.astro";
+---
+
+<!doctype html>
+<html lang="ar">
+  <head>
+    <BaseHead title={title} description={des} />
+  </head>
+  <body>
+    <Header Client={true} Admin={false} job={false}  />
+    <main>
+      <slot />
+    </main>
+    <Footer Client={true} Admin={false} job={false}/>
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

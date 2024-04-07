@@ -1,0 +1,54 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+
+.book {
+    @extend %section;
+    min-height: 30dvh;
+
+    .btn-filter {
+
+        background-color: transparent;
+        color: $text;
+        border: 1px solid rgba($color: $text, $alpha: 1.0);
+        transition: $t-s;
+        &.active,
+        &:hover {
+            background-color: $hover;
+            color: $w;
+            border-color: transparent;
+        }
+    }
+    table {
+
+        width: 100%;
+        margin-top: 5vh;
+        text-align: center;
+    
+        thead {
+            background-color: $hover;
+            color: $w;
+            font-size: 1.2rem;
+            font-weight: 700;
+            height: 7vh;
+    
+        }
+    
+        tbody {
+            background-color: $BG;
+            font-size: 18px;
+            display: none;
+            &.now , &.prev{
+                &.active{
+                    display: table-row-group;
+                }
+            }
+        }
+    
+        td {
+            padding: 1.5vh 1.2vh;
+        }
+    }
+}
+

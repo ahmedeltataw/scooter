@@ -1,0 +1,75 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+
+.hero {
+    // @extend %section;
+    height: calc(100dvh - 88px);
+    padding-bottom: 5vh;
+
+    @media(max-width:767px) {
+        height: 100dvh;
+    }
+
+    .imgContainer {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+
+    ;
+
+    .boxText {
+        color: $w;
+        margin-top: 88px;
+
+        .join-btn {
+            background-color: $hover;
+
+            &:hover {
+                background-color: $hover-1;
+            }
+        }
+
+        p {
+            width: 80%;
+            max-width: 100%;
+            @include textMedia(767px, 2);
+        }
+
+        @media(max-width:767px) {
+
+            margin-top: 35px;
+        }
+
+        @media(max-width:476px) {
+            margin-top: 88px;
+        }
+    }
+
+    @include overlay(100%, 100%, rgba($color: $text, $alpha: .5), left, 0);
+
+    .modelForm {
+
+        @extend %modelForm ;
+ 
+        // 
+        form {
+            @extend %form;
+
+        }
+
+        @media(max-width:778px) {
+
+            width: 100%;
+
+            margin-top: 20px;
+        }
+
+    }
+
+
+}

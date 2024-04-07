@@ -1,0 +1,38 @@
+---
+interface Props {
+  Client: boolean;
+  Admin: boolean;
+  job: boolean;
+}
+const { Client, Admin, job } = Astro.props;
+import { HeaderDataClient, HeaderDataAdmin } from "@data/data";
+import type { LinkType } from "../../types/types";
+---
+
+<ul
+  class="link-list d-flex mx-auto normalMenu"
+  class:list={`${Client === true ? "client" : ""} ${Admin === true ? "Admin" : ""}`}
+>
+  {
+    Client &&
+      HeaderDataClient.map((link: LinkType) => (
+        <li class="navItems">
+          <a href={link.path} class="navLink fw-700 relative">
+            {" "}
+            {link.title}{" "}
+          </a>
+        </li>
+      ))
+  }
+  {
+    Admin &&
+      HeaderDataAdmin.map((link: LinkType) => (
+        <li class="navItems">
+          <a href={link.path} class="navLink">
+            {" "}
+            {link.title}{" "}
+          </a>
+        </li>
+      ))
+  }
+</ul>

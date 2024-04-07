@@ -1,0 +1,42 @@
+---
+import { CardDate } from "@data/data";
+import type { CardType } from "../../types/types";
+import Card from "@components/Card/Card.astro";
+import FilterModel from "@components/Hero/FilterModel.astro";
+import Pagination from "@components/ui/Pagination.astro";
+---
+<section class="proPageSection">
+    <div class="container">
+        <div class="row items-start gap-row-1 ">
+            <!-- right  pro-->
+            <div class="col-8-lg col-7-md col-12-sm">
+                <div class="rightTop d-flex items-center justify-between mb-10">
+                    <select name="Sort " id="Sort " class="round-6 px-5">
+                        <option value="SortBy ">ترتيب حسب</option>
+                        <option value="NewestFirst">الأحدث أولاً</option>
+                        <option value="OldestFirst">الأقدم أولا</option>
+                        <option value="A_z">أ-ي</option>
+                        <option value="Z_a">ي-أ</option>
+                    </select>
+                    <p class="searchResult fw-700 fs-14 ml-7">تم العثور على 4 نتائج (عرض 1-4)</p>
+                </div>
+                <div class="row gap-row-1">
+                    {
+                        CardDate.slice(0,4).map((card:CardType)=>(
+                        <div class="col-6-lg col-6-md col-12-sm">
+                            <Card title={card.title } des={card.des} price={card.price} color={card.color} model={card.model} src={card.img} isStatus={card.available}/>
+                        </div>
+                        ))
+                    }
+                </div>
+                <Pagination/>
+            </div>
+            <!-- left aside -->
+            <div class="col-4-lg col-5-md col-12-sm">
+                <aside>
+                    <FilterModel isHead isBook={false}  />
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

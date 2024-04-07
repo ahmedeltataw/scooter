@@ -1,0 +1,35 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.contact{
+    @extend %section;
+    .mainHead{
+        padding-bottom: 5vh;
+       
+    }
+    form{
+        width: 700px;
+  
+        padding: 20px 30px 10px;
+        border: 1px solid rgba($color: $text, $alpha: .2);
+
+        .formGroup{
+            margin-bottom: 20px;
+        }
+        input ,textarea{
+            @include input(48px,100%,transparent);
+            
+            background-color: $BG;
+            
+            
+        }
+        input{
+            padding: 30px 20px;
+        }
+        textarea{
+            height: 150px;
+            width: 100%;
+        }
+    }
+}

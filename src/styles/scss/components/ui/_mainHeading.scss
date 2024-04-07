@@ -1,0 +1,11 @@
+@use "../../helpers/color" as *;
+.mainHeading{
+    flex-direction: column;
+    // padding-top: 5vh;
+    .subHead{
+        color: $hover;
+        svg{
+            width: 24px;
+        }
+    }
+}
